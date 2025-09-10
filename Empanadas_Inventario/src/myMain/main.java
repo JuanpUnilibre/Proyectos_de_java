@@ -22,8 +22,10 @@ public class main {
 
         // 5. Gaseosas sobrantes
         int[] gaseosas = funciones.pedirGaseosasAnoche(sc);
-        funciones.mostrarResumenGaseosas(gaseosas);
+        int valorGaseosas = operaciones.calcularValorGaseosas(gaseosas);
+        funciones.mostrarResumenGaseosas(gaseosas, valorGaseosas);
 
         sc.close();
     }
 }
+
