@@ -1,5 +1,13 @@
+#Preludio
+print("Hola, bienvenido al inventario de empanadas")
+
 #Parte de las gaseosas
-PRECIO_GASEOSA = 3000
+nombre_vendedor = input("\n¿Cual es tu nombre? ")
+print(f"\nHola {nombre_vendedor}, espero que hayas tenido un buen dia de ventas")
+
+print("\nComencemos de una vez con las gaseosas")
+
+PRECIO_GASEOSA = 3000 #Precio promedio de las gaseosas
 
 kola_roman_vendidas = int(input("\n¿Cuántas Kola Roman se vendieron hoy? "))
 postobon_vendidas = int(input("\n¿Cuántas Postobon se vendieron hoy? "))
@@ -8,15 +16,18 @@ total_gaseosas_vendidas = ((kola_roman_vendidas + delvalle_vendidos + postobon_v
 print(f"\nEn gaseosas se vendieron: ${total_gaseosas_vendidas} ")
 
 #Parte de los jugos naturales
-PRECIO_JUGO = 2500
+PRECIO_JUGO = 2500 #Precio promedio de los jugos naturales
+print("\nAhora vamos con los jugos naturales")
 
 jugos_vendidos = int(input("\n¿Cuántos jugos naturales se vendieron hoy? "))
 total_jugos_vendidos = jugos_vendidos * PRECIO_JUGO
 print(f"\nEn jugos naturales se vendieron: ${total_jugos_vendidos}")
 if jugos_vendidos > 20:
     print("¡Wow, se vendieron muchos jugos hoy!")
-else:
+elif jugos_vendidos < 10:
     print("Podemos mejorar la venta de jugos.")
+else:
+    print("La venta de jugos estuvo bien.")
     
 
 #Parte de bebidas
@@ -40,8 +51,8 @@ dinero_en_venta_fritos = fritos_vendidos_hoy * 2500
 
 print(f"\nosea que en el dia de hoy en fritos nos hicimos: {dinero_en_venta_fritos}" )
 
-PAGO_LA_FLACA = 40000
-PAGO_MIO = 40000
+PAGO_LA_FLACA = 40000 #Pago a la flaca por el dia (Cocinera)
+PAGO_MIO = 40000 #Pago de mi parte por el dia (Vendedor/a)
 
 dinero_nequi = int(input("\n¿Cuánto dinero se movió por Nequi hoy? "))
 
@@ -74,13 +85,10 @@ dinero_global_enfisicoEnd = dinero_fritos_enfisico + total_precio_bebidas - PAGO
 print(f"\nY la suma global de dinero en fisico menos mi pago, que deberías tener: {dinero_global_enfisicoEnd}")
 
 #Cuentas finales
-
 print(f"\nOkey, sumando la plata de Nequi, la plata en fisico de los fritos, y la plata de las bebidas, deberias tener en total: {dinero_nequi + dinero_fritos_enfisico + total_precio_bebidas}, este resultado es la ganancia del día de hoy de la empresa")
 
 #Resumen del dia
-
-
-print("\nGracias por tu esfuerzo el dia de hoy, nos vemos mañana")
+print(f"\nGracias por tu esfuerzo el dia de hoy {nombre_vendedor} , nos vemos mañana")
 
 
         
