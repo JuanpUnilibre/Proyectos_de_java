@@ -6,7 +6,11 @@ print("------------------------------------------------------")
 
 #Parte de las gaseosas-------------------------------------------------------------------------------
 nombre_vendedor = input("\n¿Cual es tu nombre? ")
-print(f"\nHola {nombre_vendedor}, espero que hayas tenido un buen dia de ventas")
+
+if nombre_vendedor == "marian" or nombre_vendedor == "mariannel":
+    print("\nBuenas noches bebeee 🥰, como estas? hermosa de seguro")
+else:
+    print(f"\nHola {nombre_vendedor}, espero que hayas tenido un buen dia de ventas")
 
 print("\nComencemos de una vez con las gaseosas")
 
@@ -94,7 +98,10 @@ print("------------------------------------------------------")
 print(f"\nOkey, sumando la plata de Nequi, la plata en fisico de los fritos, y la plata de las bebidas, deberias tener en total: {dinero_nequi + dinero_fritos_enfisico + total_precio_bebidas}, este resultado es la ganancia del día de hoy de la empresa")
 
 #Resumen del dia------------------------------------------------------------------------------------
-print(f"\nGracias por tu esfuerzo el dia de hoy {nombre_vendedor} , nos vemos mañana")
+if (nombre_vendedor == "marian" or nombre_vendedor == "mariannel"):
+    print(f"{ROJO}Sueña rico linda<3{RESET}")
+else:
+    print(f"\nGracias por tu esfuerzo hoy {nombre_vendedor}, nos vemos mañana, que tengas buenas noches")
 
 
 
@@ -130,4 +137,6 @@ guardar_reporte(
     ganancia_total
 )
 
-
+# Esperar antes de salir
+input("Presiona Enter para salir...")
+#################################################################################################

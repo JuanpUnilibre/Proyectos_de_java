@@ -16,3 +16,12 @@ Dinero en Nequi: $109000
 Ganancia total del día: $385500
 =====================================
 
+=====================================
+Vendedor: Maribel
+Gaseosas vendidas: $111000
+Jugos vendidos: $85000
+Dinero físico fritos: $-133500
+Dinero en Nequi: $206000
+Ganancia total del día: $268500
+=====================================
+
