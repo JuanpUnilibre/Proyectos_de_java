@@ -25,3 +25,12 @@ Dinero en Nequi: $206000
 Ganancia total del día: $268500
 =====================================
 
+=====================================
+Vendedor: milton
+Gaseosas vendidas: $108000
+Jugos vendidos: $2500
+Dinero físico fritos: $143000
+Dinero en Nequi: $122000
+Ganancia total del día: $375500
+=====================================
+

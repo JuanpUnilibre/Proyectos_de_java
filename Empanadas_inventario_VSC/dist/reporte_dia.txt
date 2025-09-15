@@ -1,0 +1,9 @@
+=====================================
+Vendedor: Yasuri
+Gaseosas vendidas: $42000
+Jugos vendidos: $85000
+Dinero físico fritos: $28000
+Dinero en Nequi: $187000
+Ganancia total del día: $342000
+=====================================
+

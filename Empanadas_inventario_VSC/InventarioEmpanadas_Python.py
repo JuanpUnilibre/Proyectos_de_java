@@ -111,12 +111,21 @@ else:
 #Cuentas finales------------------------------------------------------------------------------------
 # Guardar el reporte al finalizar el día
 
-import os
+import os, sys
+
+def ruta_base():
+    if getattr(sys, 'frozen', False):  
+        # Si está empaquetado como .exe (PyInstaller)
+        return os.path.dirname(sys.executable)
+    else:
+        # Si está corriendo como .py normal
+        return os.path.dirname(os.path.abspath(__file__))
+
 ganancia_total = dinero_nequi + dinero_fritos_enfisico + total_precio_bebidas
 
 def guardar_reporte(nombre, total_gaseosas, total_jugos, dinero_fritos_enfisico, dinero_nequi, ganancia_total):
-    ruta_base = os.path.dirname(os.path.abspath(__file__))
-    ruta_archivo = os.path.join(ruta_base, "reporte_dia.txt")
+    ruta_archivo = os.path.join(ruta_base(), "reporte_dia.txt")
+
     with open(ruta_archivo, "a", encoding="utf-8") as archivo:
         archivo.write("=====================================\n")
         archivo.write(f"Vendedor: {nombre}\n")
@@ -126,7 +135,9 @@ def guardar_reporte(nombre, total_gaseosas, total_jugos, dinero_fritos_enfisico,
         archivo.write(f"Dinero en Nequi: ${dinero_nequi}\n")
         archivo.write(f"Ganancia total del día: ${ganancia_total}\n")
         archivo.write("=====================================\n\n")
+
     print("\n✅ El archivo se guardó en:", ruta_archivo)
+
 
 guardar_reporte(
     nombre_vendedor,
