@@ -102,13 +102,14 @@ print(f"\nGracias por tu esfuerzo el dia de hoy {nombre_vendedor} , nos vemos ma
 #################################################################################################
 #################################################################################################
 #Cuentas finales------------------------------------------------------------------------------------
+# Guardar el reporte al finalizar el día
+
 import os
+ganancia_total = dinero_nequi + dinero_fritos_enfisico + total_precio_bebidas
 
 def guardar_reporte(nombre, total_gaseosas, total_jugos, dinero_fritos_enfisico, dinero_nequi, ganancia_total):
-    # Ruta absoluta de la carpeta donde está este script
     ruta_base = os.path.dirname(os.path.abspath(__file__))
     ruta_archivo = os.path.join(ruta_base, "reporte_dia.txt")
-
     with open(ruta_archivo, "a", encoding="utf-8") as archivo:
         archivo.write("=====================================\n")
         archivo.write(f"Vendedor: {nombre}\n")
@@ -118,5 +119,15 @@ def guardar_reporte(nombre, total_gaseosas, total_jugos, dinero_fritos_enfisico,
         archivo.write(f"Dinero en Nequi: ${dinero_nequi}\n")
         archivo.write(f"Ganancia total del día: ${ganancia_total}\n")
         archivo.write("=====================================\n\n")
-
     print("\n✅ El archivo se guardó en:", ruta_archivo)
+
+guardar_reporte(
+    nombre_vendedor,
+    total_gaseosas_vendidas,
+    total_jugos_vendidos,
+    dinero_fritos_enfisico,
+    dinero_nequi,
+    ganancia_total
+)
+
+

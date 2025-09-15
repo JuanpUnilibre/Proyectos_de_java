@@ -7,3 +7,12 @@ Dinero en Nequi: $190000
 Ganancia total del día: $128000
 =====================================
 
+=====================================
+Vendedor: Nodier
+Gaseosas vendidas: $108000
+Jugos vendidos: $5000
+Dinero físico fritos: $163500
+Dinero en Nequi: $109000
+Ganancia total del día: $385500
+=====================================
+
