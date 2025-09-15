@@ -1,0 +1,9 @@
+=====================================
+Vendedor: Juan
+Gaseosas vendidas: $108000
+Jugos vendidos: $30000
+Dinero físico fritos: $-200000
+Dinero en Nequi: $190000
+Ganancia total del día: $128000
+=====================================
+

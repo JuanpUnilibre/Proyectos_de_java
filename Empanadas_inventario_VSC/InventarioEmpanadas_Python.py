@@ -1,4 +1,6 @@
 #Preludio--------------------------------------------------------------------------------------------
+from colores import *
+ 
 print("Hola, bienvenido al inventario de empanadas")
 print("------------------------------------------------------")
 
@@ -14,7 +16,7 @@ kola_roman_vendidas = int(input("\n¿Cuántas Kola Roman se vendieron hoy? "))
 postobon_vendidas = int(input("\n¿Cuántas Postobon se vendieron hoy? "))
 delvalle_vendidos = int(input("\n¿Cuántas Del Valle se vendieron hoy? "))
 total_gaseosas_vendidas = ((kola_roman_vendidas + delvalle_vendidos + postobon_vendidas) * PRECIO_GASEOSA)
-print(f"\nEn gaseosas se vendieron: ${total_gaseosas_vendidas} ")
+print(f"\n{VERDE}En gaseosas se vendieron: ${total_gaseosas_vendidas}  {RESET}")
 print("------------------------------------------------------")
 
 #Parte de los jugos naturales--------------------------------------------------------------------------
@@ -25,16 +27,16 @@ jugos_vendidos = int(input("\n¿Cuántos jugos naturales se vendieron hoy? "))
 total_jugos_vendidos = jugos_vendidos * PRECIO_JUGO
 print(f"\nEn jugos naturales se vendieron: ${total_jugos_vendidos}")
 if jugos_vendidos > 20:
-    print("¡Wow, se vendieron muchos jugos hoy!")
+    print(f" {VERDE} ¡Wow, se vendieron muchos jugos hoy! {RESET} ")
 elif jugos_vendidos < 10:
-    print("Podemos mejorar la venta de jugos.")
+    print(f" {ROJO} Podemos mejorar la venta de jugos. {RESET} ")
 else:
     print("La venta de jugos estuvo bien.")
 print("------------------------------------------------------")
 
 #Parte de bebidas------------------------------------------------------------------------------------
 total_precio_bebidas = total_gaseosas_vendidas + total_jugos_vendidos
-print(f"\nEn total, en bebidas (gaseosas mas jugos) se vendieron: ${total_precio_bebidas} mete esta plata en la Bolsa #1 que entregaremos al jefe")
+print(f"\n{VERDE} En total, en bebidas (gaseosas mas jugos) se vendieron: ${total_precio_bebidas} mete esta plata en la Bolsa #1 que entregaremos al jefe {RESET} ")
 print("------------------------------------------------------")
 
 #Parte de los fritos---------------------------------------------------------------------------------
@@ -43,7 +45,7 @@ fritos_cocinados_hoy = int(input("\n¿Cuántos fritos se cocinaron hoy? "))
 sobras_fritos_anoche = int(input("\n¿Cuántos fritos quedaron de anoche? "))
 
 base = sobras_fritos_anoche + fritos_cocinados_hoy
-print(f"\nLa base de fritos de hoy en la mañana era de: {base}")
+print(f"\n{AMARILLO}La base de fritos de hoy en la mañana era de: {base} {RESET}")
 
 sobras_fritos_hoy = int(input("\n¿Cuántos fritos sobraron hoy al final del dia? "))
 fritos_vendidos_hoy = base - sobras_fritos_hoy
@@ -75,11 +77,11 @@ if respuesta == "si":
 else:
     sobro_falto = input("\n¿Te sobro dinero (si/no)? ").lower()
     if sobro_falto == "no":
-        print("\nEsta descuadrado")
+        print(f"\n{ROJO}Estas descuadrado{RESET}")
     elif sobro_falto == "si":
         supuesto = int(input("\n¿Cuánto dinero tienes en la mano? "))
         propina = supuesto - dinero_fritos_enfisico
-        print(f"\nTe sobró de propina: {propina}, guarda eso para ti, y los ${dinero_fritos_enfisico} mételos en la bolsa #2 que le entregaremos al jefe")
+        print(f"\n{VERDE}Te sobró de propina: {propina}, guarda eso para ti, y los ${dinero_fritos_enfisico} mételos en la bolsa #2 que le entregaremos al jefe  {RESET}")
         
 print("\nMuy bien, ya casi terminamos")
 dinero_global_enfisico = dinero_fritos_enfisico + total_precio_bebidas
@@ -94,8 +96,20 @@ print(f"\nOkey, sumando la plata de Nequi, la plata en fisico de los fritos, y l
 #Resumen del dia------------------------------------------------------------------------------------
 print(f"\nGracias por tu esfuerzo el dia de hoy {nombre_vendedor} , nos vemos mañana")
 
+
+
+
+#################################################################################################
+#################################################################################################
+#Cuentas finales------------------------------------------------------------------------------------
+import os
+
 def guardar_reporte(nombre, total_gaseosas, total_jugos, dinero_fritos_enfisico, dinero_nequi, ganancia_total):
-    with open("reporte_dia.txt", "a") as archivo:
+    # Ruta absoluta de la carpeta donde está este script
+    ruta_base = os.path.dirname(os.path.abspath(__file__))
+    ruta_archivo = os.path.join(ruta_base, "reporte_dia.txt")
+
+    with open(ruta_archivo, "a", encoding="utf-8") as archivo:
         archivo.write("=====================================\n")
         archivo.write(f"Vendedor: {nombre}\n")
         archivo.write(f"Gaseosas vendidas: ${total_gaseosas}\n")
@@ -105,5 +119,4 @@ def guardar_reporte(nombre, total_gaseosas, total_jugos, dinero_fritos_enfisico,
         archivo.write(f"Ganancia total del día: ${ganancia_total}\n")
         archivo.write("=====================================\n\n")
 
-import os
-print("\nEl archivo se guardó en:", os.path.abspath("reporte_dia.txt"))
+    print("\n✅ El archivo se guardó en:", ruta_archivo)
