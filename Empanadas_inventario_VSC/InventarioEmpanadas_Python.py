@@ -112,6 +112,9 @@ else:
 # Guardar el reporte al finalizar el día
 
 import os, sys
+import datetime
+
+
 
 def ruta_base():
     if getattr(sys, 'frozen', False):  
@@ -123,12 +126,15 @@ def ruta_base():
 
 ganancia_total = dinero_nequi + dinero_fritos_enfisico + total_precio_bebidas
 
+timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
 def guardar_reporte(nombre, total_gaseosas, total_jugos, dinero_fritos_enfisico, dinero_nequi, ganancia_total):
     ruta_archivo = os.path.join(ruta_base(), "reporte_dia.txt")
 
     with open(ruta_archivo, "a", encoding="utf-8") as archivo:
         archivo.write("=====================================\n")
         archivo.write(f"Vendedor: {nombre}\n")
+        archivo.write(f"Fecha y hora: {timestamp}\n")
         archivo.write(f"Gaseosas vendidas: ${total_gaseosas}\n")
         archivo.write(f"Jugos vendidos: ${total_jugos}\n")
         archivo.write(f"Dinero físico fritos: ${dinero_fritos_enfisico}\n")

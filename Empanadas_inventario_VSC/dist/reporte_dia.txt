@@ -7,3 +7,13 @@ Dinero en Nequi: $187000
 Ganancia total del día: $342000
 =====================================
 
+=====================================
+Vendedor: Rengoku
+Fecha y hora: 2025-09-15 16:36:38
+Gaseosas vendidas: $72000
+Jugos vendidos: $57500
+Dinero físico fritos: $97500
+Dinero en Nequi: $200000
+Ganancia total del día: $427000
+=====================================
+
