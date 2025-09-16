@@ -1,5 +1,6 @@
 #Preludio--------------------------------------------------------------------------------------------
 from colores import *
+from funciones import pedir_entero
  
 print("Hola, bienvenido al inventario de empanadas")
 print("------------------------------------------------------")
@@ -7,7 +8,7 @@ print("------------------------------------------------------")
 #Parte de las gaseosas-------------------------------------------------------------------------------
 nombre_vendedor = input("\n¿Cual es tu nombre? ")
 
-if nombre_vendedor == "marian" or nombre_vendedor == "mariannel":
+if nombre_vendedor.lower() == "marian" or nombre_vendedor.lower() == "mariannel":
     print("\nBuenas noches bebeee 🥰, como estas? hermosa de seguro")
 else:
     print(f"\nHola {nombre_vendedor}, espero que hayas tenido un buen dia de ventas")
@@ -16,9 +17,9 @@ print("\nComencemos de una vez con las gaseosas")
 
 PRECIO_GASEOSA = 3000 #Precio promedio de las gaseosas
 
-kola_roman_vendidas = int(input("\n¿Cuántas Kola Roman se vendieron hoy? "))
-postobon_vendidas = int(input("\n¿Cuántas Postobon se vendieron hoy? "))
-delvalle_vendidos = int(input("\n¿Cuántas Del Valle se vendieron hoy? "))
+kola_roman_vendidas = pedir_entero("\n¿Cuántas Kola Roman se vendieron hoy?")
+postobon_vendidas = pedir_entero("\n¿Cuántas Postobon se vendieron hoy? ")
+delvalle_vendidos = pedir_entero("\n¿Cuántas Del Valle se vendieron hoy? ")
 total_gaseosas_vendidas = ((kola_roman_vendidas + delvalle_vendidos + postobon_vendidas) * PRECIO_GASEOSA)
 print(f"\n{VERDE}En gaseosas se vendieron: ${total_gaseosas_vendidas}  {RESET}")
 print("------------------------------------------------------")
@@ -27,7 +28,7 @@ print("------------------------------------------------------")
 PRECIO_JUGO = 2500 #Precio promedio de los jugos naturales
 print("\nAhora vamos con los jugos naturales")
 
-jugos_vendidos = int(input("\n¿Cuántos jugos naturales se vendieron hoy? "))
+jugos_vendidos = pedir_entero("\n¿Cuántos jugos naturales se vendieron hoy? ")
 total_jugos_vendidos = jugos_vendidos * PRECIO_JUGO
 print(f"\nEn jugos naturales se vendieron: ${total_jugos_vendidos}")
 if jugos_vendidos > 20:
@@ -45,24 +46,24 @@ print("------------------------------------------------------")
 
 #Parte de los fritos---------------------------------------------------------------------------------
 print("\n...Ahora vamos con fritos")
-fritos_cocinados_hoy = int(input("\n¿Cuántos fritos se cocinaron hoy? "))
-sobras_fritos_anoche = int(input("\n¿Cuántos fritos quedaron de anoche? "))
+fritos_cocinados_hoy = pedir_entero("\n¿Cuántos fritos se cocinaron hoy? ")
+sobras_fritos_anoche = pedir_entero("\n¿Cuántos fritos sobraron de anoche? ")
 
 base = sobras_fritos_anoche + fritos_cocinados_hoy
 print(f"\n{AMARILLO}La base de fritos de hoy en la mañana era de: {base} {RESET}")
 
-sobras_fritos_hoy = int(input("\n¿Cuántos fritos sobraron hoy al final del dia? "))
+sobras_fritos_hoy = pedir_entero("\n¿Cuántos fritos sobraron hoy al final del día? ")
 fritos_vendidos_hoy = base - sobras_fritos_hoy
-print(f"\nLos fritos vendidos hoy fueron: {fritos_vendidos_hoy}")
+print(f"\n{AMARILLO}Los fritos vendidos hoy fueron: {fritos_vendidos_hoy} {RESET}")
 
 dinero_en_venta_fritos = fritos_vendidos_hoy * 2500
 
-print(f"\nosea que en el dia de hoy en fritos nos hicimos: {dinero_en_venta_fritos}" )
+print(f"\n{AMARILLO}osea que en el dia de hoy en fritos nos hicimos: {dinero_en_venta_fritos} {RESET} " )
 
 PAGO_LA_FLACA = 40000 #Pago a la flaca por el dia (Cocinera)
 PAGO_MIO = 40000 #Pago de mi parte por el dia (Vendedor/a)
 
-dinero_nequi = int(input("\n¿Cuánto dinero se movió por Nequi hoy? "))
+dinero_nequi = pedir_entero("\n¿Cuánto dinero se recibió por Nequi hoy? ")
 
 print("\nTuvimos gastos menores hoy? (si/no)")
 if input().lower() == "si":
@@ -71,35 +72,39 @@ if input().lower() == "si":
 else:
     gastos_menores = 0
 dinero_fritos_enfisico = (dinero_en_venta_fritos - (PAGO_LA_FLACA + dinero_nequi + gastos_menores))
-print(f"\nDeberias tener de dinero en fisico de fritos: {dinero_fritos_enfisico}, esto restando los pagos a la flaca, el dinero de nequi y los gastos menores")
+print(f"\n{VERDE}Deberias tener de dinero en fisico de fritos: {dinero_fritos_enfisico}, esto restando los pagos a la flaca, el dinero de nequi y los gastos menores {RESET}")
 print("------------------------------------------------------")
 
 # Validación de caja-----------------------------------------------------------------------------------
 respuesta = input("\n¿El dinero te dio exacto? (si/no) ").lower()
 if respuesta == "si":
-    print("\nBien, sigamos")
+    print(f"\n{AMARILLO}Bien, sigamos{RESET}")
 else:
     sobro_falto = input("\n¿Te sobro dinero (si/no)? ").lower()
     if sobro_falto == "no":
-        print(f"\n{ROJO}Estas descuadrado{RESET}")
+        validacion_descuadre = 0
+        print(f"\n{ROJO} ⚠️ Estas descuadrado{RESET}")
     elif sobro_falto == "si":
         supuesto = int(input("\n¿Cuánto dinero tienes en la mano? "))
         propina = supuesto - dinero_fritos_enfisico
         print(f"\n{VERDE}Te sobró de propina: {propina}, guarda eso para ti, y los ${dinero_fritos_enfisico} mételos en la bolsa #2 que le entregaremos al jefe  {RESET}")
-        
-print("\nMuy bien, ya casi terminamos")
+        print("\nBien, sigamos")
+#------------------------------------------------------------------------------------------------------
+
+      
+
 dinero_global_enfisico = dinero_fritos_enfisico + total_precio_bebidas
-print(f"\nLa suma global de dinero en fisico (fritos mas bebidas) que deberías tener: {dinero_global_enfisico}, eso por si lo querias saber, o comprobar, aunque ya a este punto los metiste en sus respectivas bolsas")
+print(f"\n{VERDE}La suma global de dinero en fisico (fritos mas bebidas) que deberías tener: {dinero_global_enfisico}, eso por si lo querias saber, o comprobar, aunque ya a este punto los metiste en sus respectivas bolsas{RESET}")
 dinero_global_enfisicoEnd = dinero_fritos_enfisico + total_precio_bebidas - PAGO_MIO
-print(f"\nY la suma global de dinero en fisico menos mi pago, que deberías tener: {dinero_global_enfisicoEnd}")
+print(f"\n{VERDE}Y la suma global de dinero en fisico menos mi pago, que deberías tener: {dinero_global_enfisicoEnd} {RESET}")
 print("------------------------------------------------------")
 
 #Cuentas finales------------------------------------------------------------------------------------
-print(f"\nOkey, sumando la plata de Nequi, la plata en fisico de los fritos, y la plata de las bebidas, deberias tener en total: {dinero_nequi + dinero_fritos_enfisico + total_precio_bebidas}, este resultado es la ganancia del día de hoy de la empresa")
+print(f"\n{VERDE}Okey, sumando la plata de Nequi, la plata en fisico de los fritos, y la plata de las bebidas, deberias tener en total: {dinero_nequi + dinero_fritos_enfisico + total_precio_bebidas}, este resultado es la ganancia del día de hoy de la empresa {RESET}")
 
 #Resumen del dia------------------------------------------------------------------------------------
 if (nombre_vendedor == "marian" or nombre_vendedor == "mariannel"):
-    print(f"{ROJO}Sueña rico linda<3{RESET}")
+    print(f"Sueña rico linda{ROJO}<3{RESET}")
 else:
     print(f"\nGracias por tu esfuerzo hoy {nombre_vendedor}, nos vemos mañana, que tengas buenas noches")
 

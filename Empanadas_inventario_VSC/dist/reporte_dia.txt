@@ -17,3 +17,23 @@ Dinero en Nequi: $200000
 Ganancia total del día: $427000
 =====================================
 
+=====================================
+Vendedor: Luis suarez
+Fecha y hora: 2025-09-16 17:06:20
+Gaseosas vendidas: $141000
+Jugos vendidos: $57500
+Dinero físico fritos: $-229500
+Dinero en Nequi: $190000
+Ganancia total del día: $159000
+=====================================
+
+=====================================
+Vendedor: Ronaldo
+Fecha y hora: 2025-09-16 17:56:02
+Gaseosas vendidas: $405000
+Jugos vendidos: $2500
+Dinero físico fritos: $90000
+Dinero en Nequi: $198000
+Ganancia total del día: $695500
+=====================================
+
